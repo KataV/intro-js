@@ -222,9 +222,38 @@
   contentWayPoint();
 })(jQuery);
 
+const mouseTarget = document.querySelector("h1");
+const eventTarget = document.querySelector("#popup1");
+
+const closeTarget = document.querySelector('[id="popup1"] [class="close"]');
+
 function makeVisible() {
-  popup1.removeClass("overlay");
+  eventTarget.style.visibility = "visible";
+}
+function makeInVisible() {
+  eventTarget.style.visibility = "hidden";
 }
 
-var juttuli = document.getElementsByTagName("h1");
-juttuli.addEventListener("mouseleave", makeVisible);
+mouseTarget.addEventListener("mouseleave", makeVisible);
+closeTarget.addEventListener("click", makeInVisible);
+
+//Teacher's solution:
+document.addEventListener("mouseleave", function() {
+  document.getElementById("popup1").style.visibility = "visible";
+});
+
+//document.addEventListener("click", function() {
+// document.querySelector('[id="popup1"] [class="close"]').style.visibility =
+//   "hidden";
+//});
+
+document
+  .querySelector('[id="frm_subscribe"] [class="button"]')
+  .addEventListener("click", function() {
+    var userInput = "email";
+    var valResult = true;
+    if (valResult === true) {
+      document.getElementById("popup1").style.visibility = "hidden";
+      document.getElementById("popup2").style.visibility = "visible";
+    }
+  });
