@@ -237,6 +237,15 @@ function makeInVisible() {
 mouseTarget.addEventListener("mouseleave", makeVisible);
 closeTarget.addEventListener("click", makeInVisible);
 
+const eventTarget2 = document.querySelector("#popup2");
+const closeTarget2 = document.querySelector('[id="popup2"] [class="close"]');
+
+function makeInVisible2() {
+  eventTarget2.style.visibility = "hidden";
+}
+
+closeTarget2.addEventListener("click", makeInVisible2);
+
 //Teacher's solution:
 document.addEventListener("mouseleave", function() {
   document.getElementById("popup1").style.visibility = "visible";
